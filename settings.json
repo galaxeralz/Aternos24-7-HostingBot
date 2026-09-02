@@ -7,7 +7,7 @@
   },
   "server": {
     "ip": "primesmp.playwithbao.com",
-    "port":      ,
+    "port":    30040,
     "version": "",
     "try-creative": false
   },
