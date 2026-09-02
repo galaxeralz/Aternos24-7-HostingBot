@@ -463,7 +463,20 @@ function createBot() {
       hideErrors: false,
       checkTimeoutInterval: 600000
     });
+    
+// Resource pack handler
+bot.on('resourcePack', (url, hash) => {
+  console.log('[ResourcePack] Server sent a resource pack.');
+  console.log('[ResourcePack] Accepting...');
 
+  try {
+    bot.acceptResourcePack();
+    console.log('[ResourcePack] Accepted.');
+  } catch (error) {
+    console.error('[ResourcePack] Error accepting resource pack:', error);
+  }
+});
+    
     bot.loadPlugin(pathfinder);
 
     // FIX: connection timeout - end the old bot before reconnecting to avoid ghost bots
