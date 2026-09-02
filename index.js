@@ -463,31 +463,6 @@ function createBot() {
       hideErrors: false,
       checkTimeoutInterval: 600000
     });
-    
-  // Resource pack handler for Minecraft 1.21.11
-    bot._client.on('add_resource_pack', (data) => {
-      console.log('[ResourcePack] Server sent a resource pack.');
-
-      const uuid = typeof data.uuid === 'string'
-        ? data.uuid
-        : data.uuid?.toString();
-
-      if (!uuid) {
-        console.log('[ResourcePack] No UUID received.');
-        return;
-      }
-
-      try {
-        bot._client.write('resource_pack_receive', {
-          uuid: uuid,
-          result: 3
-        });
-
-        console.log('[ResourcePack] Accepted.');
-      } catch (error) {
-        console.error('[ResourcePack] Error:', error);
-      }
-    });
 
     bot.loadPlugin(pathfinder);
 
